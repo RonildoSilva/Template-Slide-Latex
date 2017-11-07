@@ -1,0 +1,17 @@
+\DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
+\ExecuteOptionsBeamer{shadow=true}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\setbeamertemplate{blocks}[ball]
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{sections/subsections in toc}[square] %%ball, circle, square, ball unnumbered
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+
+\mode<all>
+
+%%% Local Variables:
+%%% TeX-master: "~/texmf/tex/latex/beamer/test/test.tex"
+%%% End:

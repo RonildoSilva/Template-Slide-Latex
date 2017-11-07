@@ -1,0 +1,218 @@
+\documentclass[10pt,fleqn]{beamer}
+
+\hypersetup{pdfpagemode=FullScreen}
+\beamertemplatenavigationsymbolsempty
+%%\usetheme[compress]{Singapore}
+\usetheme[compress]{mcgill} %% mostra horizontalemte
+\DeclareGraphicsExtensions{.jpg,.eps,.png,.pdf,.mps,.gif}
+
+\usepackage[alf]{abntex2cite}
+
+\usepackage{helvet}
+\usepackage{ccfonts}     % Font family: Concrete Math
+
+%%Tabela
+\usepackage{booktabs}
+
+\usepackage[T1]{fontenc}
+%\usepackage[english]{babel}
+\usepackage[brazil]{babel}   
+%\usepackage[latin1]{inputenc}  
+\usepackage[utf8]{inputenc}  
+
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{lmodern}
+\usepackage[3D]{movie15}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% color definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{gris1}{RGB}{220,220,220}
+\definecolor{gris2}{RGB}{180,180,180}
+\definecolor{couleurtitreslide}{RGB}{220,220,220}
+\definecolor{couleurbarretitreslide}{RGB}{0,33,99}
+%\definecolor{couleurrouge}{RGB}{0,98,155} % barra infeiror %
+\definecolor{couleurrouge}{RGB}{0,33,99} % barra infeiror %
+\definecolor{couleurtexteblock}{RGB}{145,5,5}
+\definecolor{couleurfond}{RGB}{255,255,255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title page definition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercovered{dynamic}
+\setbeamerfont{author}{family=\rmfamily}
+
+\author[Autor]{Autor da Comadre Cida \inst{1}, Co-Autor \inst{1}\\[5pt]\scriptsize{Bacharelado em Astrologia Eletrônica}}
+\title[Titulo do Trabalho]
+{Desempenamento de Vidros, \\ Uma Abordagem Prática}
+\institute{Nome do Evento 2017\\
+\small{Universidade Federal do Ceará \textit{Campus} Quixadá, Brasil}}
+\date[]{\today}
+\titlegraphic{\includegraphics[height=2cm]{img/logo/UFCLogoCl}}
+
+% table of contents depth
+\setcounter{tocdepth}{1}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
+
+  % slice
+  \draw[thick,fill=black!10] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+
+  % outer label
+  \node[label=\midangle:#4] at (\midangle:1) {};
+
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {#3};
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\usebackgroundtemplate{
+\includegraphics[width=195mm]{img/logo/BackgroundUFC.eps}}
+\frame[plain]{\titlepage}
+
+%%%%%%%%%% AGENDA
+\frame{\frametitle{Contents}\tableofcontents}
+
+%%%%%%%%%% SEÇÕES
+\section{Intro}
+\label{sec:introducao}
+\begin{frame}{Intro}
+    In augue tellus, feugiat id varius a, lacinia et turpis. Phasellus sollicitudin molestie felis at euismod. Etiam nec ipsum ut mi posuere venenatis non eu nulla. Maecenas vitae arcu in diam molestie euismod ac sit amet diam. Suspendisse urna ligula, facilisis in semper vitae, pellentesque vel ante. Phasellus ullamcorper vestibulum sem. Nunc pretium tortor lectus, id mattis nibh lobortis at. Integer at mauris odio. \cite{lamport1994latex}
+    \begin{itemize}
+        \item Uno
+        \item Dois
+        \item Three
+    \end{itemize}
+\end{frame}
+
+\section{Nunc semper and Nullam sem}
+\label{sec:nunc-semper-congue-felis}
+\begin{frame}{Nunc semper congue felis}
+    \begin{columns}[T] % align columns
+        %%Esquerda
+        \begin{column}{.48\textwidth}
+            \textbf{Nunc semper congue felis}
+            \color{couleurbarretitreslide}\rule{\linewidth}{2pt} \color{black}
+            \newline
+            Nunc semper congue felis, ornare pretium lorem mattis non. Sed imperdiet, elit at consectetur sodales, ante eros egestas ipsum, id egestas lectus orci eget risus. Nunc dapibus neque a rutrum bibendum. Proin et orci dui. Mauris ac volutpat nibh. Duis malesuada lorem a velit tempus, et sollicitudin quam tincidunt. Pellentesque finibus ullamcorper odio, eu euismod sapien feugiat eu.
+        \end{column}%
+        
+        \hfill%
+        
+        %%Direita
+        \begin{column}{.48\textwidth}
+            \textbf{Nullam tincidunt volutpat sem}
+            \color{couleurbarretitreslide}\rule{\linewidth}{2pt} \color{black}
+            \newline
+            Nullam tincidunt volutpat sem, sodales aliquet massa maximus sit amet. Mauris rutrum et elit eget mattis. Aenean vitae bibendum ligula. Nam faucibus nisi sed tortor hendrerit, vitae consectetur quam cursus. Vestibulum dictum, felis nec semper facilisis, magna diam suscipit turpis, vitae maximus erat neque at nisl. Duis maximus, velit eu ultricies iaculis, justo metus sodales magna, et sagittis purus massa sit amet lorem.
+        \end{column}%
+        
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Regressão Logística}
+    Nam nec sapien in enim consequat tincidunt. Morbi eget libero vitae nulla dapibus tincidunt in at urna. Integer aliquam ex nec quam malesuada ultrices. Curabitur ultricies orci sed venenatis luctus. Nullam vulputate magna arcu, at dictum nisl aliquet quis. Cras felis mauris, imperdiet ac viverra eget, fermentum vitae dui. In ut massa condimentum, congue magna ac, vulputate ipsum. Aenean id convallis leo, vitae lacinia dui. Figura \ref{fig:funcao-sigmoide}.    
+\end{frame}
+
+\begin{frame}{Plot}
+    \begin{figure}[ht]
+    \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+    	\begin{axis}
+    		\addplot[surf, ultra thick] {1/(1 + (e^-x)};
+    	\end{axis}
+    	\node[fill=white,draw] at (5.5,1.0) 
+		{$\frac{1}{(1 + \exp^{-x})}$};
+    \end{tikzpicture}
+    \caption{Sigmoid funcion example.}
+    \label{fig:funcao-sigmoide}
+    \end{center}
+    \end{figure}
+\end{frame}
+
+\subsection{Penguin}
+\label{sec:validacao}
+\begin{frame}{Description}
+    \begin{columns}[T] % align columns
+        %%Esquerda
+        \begin{column}{.48\textwidth}
+            \textbf{Text}
+            \color{couleurbarretitreslide}\rule{\linewidth}{2pt} \color{black}
+            \newline
+            Penguins (order Sphenisciformes, family Spheniscidae) are a group of aquatic, flightless birds. They live almost exclusively in the Southern Hemisphere, with only one species, the Galapagos penguin, found north of the equator. Figure \ref{fig:penguin}.
+             
+        \end{column}%
+        
+        \hfill%
+        
+        %%Direita
+        \begin{column}{.48\textwidth}
+            \textbf{Image}
+            \color{couleurbarretitreslide}\rule{\linewidth}{2pt}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.3]{img/image.jpg}
+                \caption{This is a penguin}
+                \label{fig:penguin}
+            \end{figure}
+            
+        \end{column}%
+        
+    \end{columns}
+    
+\end{frame}
+
+\section{Table} \label{sec:table}
+\begin{frame}{Table}
+    \begin{table}[]
+    \centering
+        \begin{tabular}{llr}
+            \hline
+            \multicolumn{2}{c}{Item} &            \\ \cline{1-2}
+            Animal     & Description & Price (\$) \\ \hline
+            Gnat       & per gram    & 13.65      \\
+                       & each        & 0.01       \\
+            Gnu        & stuffed     & 92.50      \\
+            Emu        & stuffed     & 33.33      \\
+            Armadillo  & frozen      & 8.99       \\ \hline
+        \end{tabular}
+        \caption{\href{https://www.tablesgenerator.com/}{Tables Generator}}
+        \label{table:table-generator}
+\end{table}
+\end{frame}
+
+\section{The End} \label{sec:the-end}
+\begin{frame}{Frame Title}
+    \begin{itemize}
+        \item Sed orci urna, commodo in venenatis nec, blandit quis enim;
+    
+        \item Aliquam vulputate vel lectus eget bibendum;
+    
+        \item Nam nunc nisl, pellentesque quis porttitor vel, rhoncus id leo.
+        
+        \item Pellentesque pretium pharetra lectus, non molestie tortor lacinia at.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Referêcias}
+\bibliography{abntex2-modelo-references}
+\end{frame}
+
+\end{document}

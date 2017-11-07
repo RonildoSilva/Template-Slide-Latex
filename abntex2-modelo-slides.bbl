@@ -1,0 +1,24 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.2 }
+
+\bibitem[Aniche 2014]{aniche:14}
+\abntrefinfo{Aniche}{ANICHE}{2014}
+{ANICHE, M. \emph{Orientacao a Objetos e SOLID para Ninjas - Projetando Classes
+  Flexiveis}. 1st. ed. [S.l.]: Casa do Codigo, 2014.}
+
+\bibitem[Liskov e Wing 1999]{liskov:99}
+\abntrefinfo{Liskov e Wing}{LISKOV; WING}{1999}
+{LISKOV, B.~H.; WING, J.~M. \emph{Behavioral Subtypind Using Invariants and
+  Constraints}. [S.l.]: School of Computer Science Carnegie Mellon University
+  Pittsburg, 1999.}
+
+\bibitem[Martin e Martin 2006]{martin:06}
+\abntrefinfo{Martin e Martin}{MARTIN; MARTIN}{2006}
+{MARTIN, R.~C.; MARTIN, M. \emph{Agile Principles, Patterns, and Practices in C
+  Sharp}. 1st. ed. [S.l.]: Prentice Hall, 2006.}
+
+\end{thebibliography}
